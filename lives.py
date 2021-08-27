@@ -1,5 +1,22 @@
 import random
-import time
+
+def lives_check (question, low, high):
+  error = "please enter a whole number between 1 and 10\n"
+
+  valid = False
+  while not valid:
+    try:
+      response = int(input(question))
+      #if the amount is too low /too high give
+      if 1 < response <= 10:
+        return response
+      
+        #output an error
+      else:
+        print(error)
+    except ValueError:
+     print(error)
+
 
 play_lives = input ("Would you like to play with lives\n")
 
@@ -7,15 +24,14 @@ play_lives = input ("Would you like to play with lives\n")
 if play_lives == "yes":
   print ("Thats great")
   print("How many lives would you like to play with")
-  user_lives = int(input()) 
-  print("You will be playing with {} lives".format(user_lives))
+  user_lives = lives_check ("how much many lives would you like to play with? ", 0, 10)
+  print("you will be playing with {} lives".format(user_lives))
 
 
 else:
   print("You will be playing with 0 lives")
   user_lives = ()
 
-# quiz questions 
 Questions_answers = {
     "What is red in Te Reo Maaori?  \n A. whero \n B. Red \n C. whrea \n D. rato" :["a", "whero"],
 }   
@@ -49,7 +65,6 @@ while True:
                 print ("You've run out of lives")
                 print("Thanks for playing the Te Reo quiz"\
                 " we hope to see you again")
-                time.sleep(2)
                 exit()
               else:
                 if user_lives < 2:
