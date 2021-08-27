@@ -1,3 +1,4 @@
+import time
 
 # yes/no function
 def played_before(question):
@@ -16,7 +17,7 @@ def played_before(question):
     elif user_response == "xxx":
       print("Thanks for playing the Te Reo Maaori quiz")
       print("We hope to see you again")
-
+      exit()
 
     else:
       print("Please say yes or no") 
@@ -45,7 +46,8 @@ elif played_quiz == "no":
 elif played_quiz == "xxx":
   print("Thanks for playing the Te Reo Maaori quiz")
   print("We hope to see you again")
-
+  time.sleep(2)
+  exit()
 # else, asks user to type yes or no or xxx to quit then the question repeats
 else:
   print("Please say yes or no") 
