@@ -2,3 +2,5 @@
 print("Welcome to the Te Reo Maaori quiz")
 # Asks user their name
 print("What is your amazing name?")
+name = input ( )
+print("Kia Ora " + name)
