@@ -17,6 +17,11 @@ elif played_before == "no":
   print("Thats ok")
   print("The Te Reo Maaori quiz is a program which tests and helps students enhance their Te Reo Maaori language skill")
 
+# if xxx, program should end
+elif exit_code == "xxx":
+  print("Thanks for playing the Te Reo Maaori quiz")
+  print("end program")
+
 # else, asks user to type yes or no or xxx to quit then the question repeats
 else:
   print("Please say yes or no") 
