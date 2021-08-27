@@ -18,7 +18,7 @@ while True:
     print ("program continues")
     break
     
-  # elif xxx,   
+  # elif xxx, program ends  
   elif user_difficulty == "xxx":
     print ("Thanks for playing")
     exit()
