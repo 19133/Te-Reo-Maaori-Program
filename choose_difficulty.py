@@ -34,19 +34,19 @@ while True:
   # if easy, the user will be asked easy questions 
   if user_difficulty == "easy":
     print ("program continues")
-    print (Question_list_easy)
+    Question = list(Question_list_easy)
     break
 
   # elif medium, the program will print medium difficulty questions
   elif user_difficulty == "medium":
     print ("program continues")
-    print (Question_list_medium)
+    Question = list (Question_list_medium)
     break
 
   # elif hard, the program will print hard difficulty questions
   elif user_difficulty == "hard":
     print ("program continues")
-    print (Question_list_hard)
+    Question = list (Question_list_hard)
     break
 
   elif user_difficulty == "xxx":
