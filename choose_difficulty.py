@@ -1,4 +1,3 @@
-
 import random
 import time
 
@@ -25,41 +24,68 @@ Question_list_hard = {
    "what would be stored in a paataka? Pikapuka, kai or waka?" :"kai", 
    "what is te reo maaori name for the rugby union?":"hutuporo",
    "if it is ua, what is it?" :"rainy",
-   "if you were going for a hikoi you are?" :"going for a walk"
-   } 
+   "if you were going for a hikoi you are?" :"going for a walk"}
 
-while True:
-  user_difficulty = input("Would you like to play on easy, medium, or hard\n").lower()
 
-  # if easy, the user will be asked easy questions 
-  if user_difficulty == "easy":
-    print ("program continues")
-    Questions_list = Question_list_easy
-    break
 
-  # elif medium, the program will print medium difficulty questions
-  elif user_difficulty == "medium":
-    print ("program continues")
-    Questiosn_list = Question_list_medium
-    break
+# user difficulty function
+def Chosen_difficulty(question):
+  valid=False
+  while not valid:
+    difficulty_response = input (question) .lower()
 
-  # elif hard, the program will print hard difficulty questions
-  elif user_difficulty == "hard":
-    print ("program continues")
-    Questions_list = Question_list_hard
-    break
+    if difficulty_response == "easy": 
+        difficulty_response = "easy"
+        return difficulty_response
+        
+    elif difficulty_response == "medium":
+        difficulty_response = "medium"
+        return difficulty_response 
 
-  elif user_difficulty == "xxx":
-    print ("Thanks for playing the Te Reo Maaori Quiz")
-    print ("We hope to see you again")
-    time.sleep(2)
-    exit()
-    
-  else:
-    print("please type easy, medium, or hard")
+    elif difficulty_response == "hard":
+      difficulty_response = "hard"
+      return difficulty_response      
+
+    elif difficulty_response == "xxx":
+      print("Thanks for playing the Te Reo Maaori quiz")
+      print("We hope to see you again")
+      time.sleep(2)
+      exit()     
+
+    else:
+      print("Please choose easy, medium or hard") 
+      print("Or type xxx to quit")
+
+
+quiz_difficulty = Chosen_difficulty ("Would you like to play on easy, medium, or hard\n").lower()
+
+# if easy, the program will print easy questions
+if quiz_difficulty == "easy":
+  Question_list = Question_list_easy
+
+
+# if medium, the program will print easy questions
+elif quiz_difficulty == "medium":
+  Question_list = Question_list_medium
+
+
+# if hard, the program will print easy questions
+elif quiz_difficulty == "hard":
+  Question_list = Question_list_hard
+
+# if xxx, program discontinues
+elif quiz_difficulty == "xxx":
+  print ("Thanks for playing the Te Reo Maaori Quiz")
+  print ("We hope to see you again")
+  time.sleep(2)
+  exit()
+
+else:
+  print("please type easy, medium, or hard")
+
 
 score = 0
-question = list (Questions_list.keys())
+question = list (Question_list.keys())
 #input answer here 
 while True:
     if not question:
@@ -69,7 +95,7 @@ while True:
     while True:
         answer = input('Answer ' )
         # if correct, moves onto next question
-        if answer.lower() in Questions_list[ques]:
+        if answer.lower() in Question_list[ques]:
             print("Correct Answer")
             print ()
             # if correct, score goes up by 1
