@@ -1,62 +1,25 @@
+# quiz questions 
+Questions_answers = {
+    "What is ocean in Te Reo Maaori? \n A. kātao\n B. Moana\n C. Awa \n D. Wai":"b" or "moana",
+    "What is red in Te Reo Maaori?  \n A. whero \n B. Red \n C. whrea \n D. rato" :"a" or "whero",
+    "If it is Ua it is what? \n A. Rainy \n B. Sunny \n C. hot \n D. 21 hours ":"a" or "rainy"
+}   
+
 score = 0
-
-# red question function
-def quiz_question(question):
-  valid=False
-  while not valid:
-    user_response = input (question) .lower()
-
-    if user_response == "whero":
-        user_response = "whero"
-        return user_response 
-
-    else:
-      print("Incorrect, try again") 
-
-# ocean question function
-def quiz_question2(question):
-  valid=False
-  while not valid:
-    user_response = input (question) .lower()
-
-    if user_response == "moana":
-        user_response = "moana"
-        return user_response 
-
-    else:
-      print("Incorrect, try again") 
-
-
-# main routine goes here
-
-# whats red in te reo maaori? 
-qna_whero = quiz_question ("What’s red in Te Reo Maaori?\n")
-
-# if whero, print correct
-if qna_whero == "whero":
-  print("Correct")
-  # if correct, score goes up by 1
-  score + 1
-  print("Your score is now", score)
-  print()
-
-# if not whero, print incorect
-else:
-  print("Incorect, try again")
-  print()
-
-# whats ocean in te reo maaori? 
-qna_awa = quiz_question2 ("What’s ocean in Te Reo Maaori?\n")
-
-# if moana, print correct
-if qna_awa == "moana":
-  print("Correct")
-  # if correct, score goes up by 1
-  score + 1
-  print("Your score is now", score)
-  print()
-
-# if not moana, print incorect
-else:
-  print("Incorect, try again")
-  print()
+question = list (Questions_answers.keys())
+#input answer here 
+while True:
+  answer = input('Answer ' )
+  # if correct, moves onto next question
+  if answer.lower() == Questions_answers:
+      print("Correct Answer")
+      print ()
+      # if correct, score goes up by 1
+      score += 1
+      print("total score is", score)
+      print()
+      break
+  else:
+      #if wrong, Asks the same question again
+      print("Wrong Answer, try again")
+question.remove
