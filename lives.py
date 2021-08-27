@@ -1,4 +1,5 @@
 import random
+import time
 
 play_lives = input ("Would you like to play with lives\n")
 
@@ -11,8 +12,8 @@ if play_lives == "yes":
 
 
 else:
+  print("You will be playing with 0 lives")
   user_lives = ()
-  print("You will not be playing with lives")
 
 # quiz questions 
 Questions_answers = {
@@ -32,17 +33,30 @@ while True:
         # if correct, moves onto next question
         if answer.lower() in Questions_answers[ques]:
             print("Correct Answer")
+            print ()
+            # if correct, score goes up by 1
+            score += 1
+            print("your score is now", score)
             print()
             break
         else:
             #if wrong, Asks the same question again
             print("Wrong Answer, try again")
-            user_lives-=1
-            print("You now have {} lives left".format(user_lives))
-            if user_lives < 1:
-              print()
-              print("Thanks for playing the Te Reo quiz"\
-              " we hope to see you again")
-              exit()  
-
+            if user_lives != ():
+              user_lives -= 1
+              if user_lives < 1:
+                print()
+                print ("You've run out of lives")
+                print("Thanks for playing the Te Reo quiz"\
+                " we hope to see you again")
+                time.sleep(2)
+                exit()
+              else:
+                if user_lives < 2:
+                  print("You now have one life left")
+                  print()
+                else:
+                  print("You now have {} lives left".format(user_lives))
+                  print()
+                  print("Try again")
     question.remove(ques)
