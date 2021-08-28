@@ -56,6 +56,9 @@ def Chosen_difficulty (question):
       print("Please choose easy, medium or hard") 
       print("Or type xxx to quit") 
 
+# Main routine
+
+# program asks user if they would like to play on easy, medium, or hard
 quiz_difficulty = Chosen_difficulty ("Would you like to play on easy, medium, or hard\n").lower()
 
 # if easy, the programw will print easy questions
@@ -101,55 +104,56 @@ print("GOOD LUCK")
 
 # score = 0
 score = 0
-# the question = one of the questions in the list
-question = list (Questions_answers.keys())
-#input answer here 
 while True:
-    if not question:
-        break
-    # that variable which will have the randomly chose question will mean the same as random.choice(question) which is why the variable is named randomized_question. 
-    # random.choice(question) randomly picks one of the questions in the dictionary
-    randomize_question = random.choice(question)
-    # program prints random question from dictionary. Questions vary depending on what difficulty the user chose
-    print(randomize_question)
-    while True:
-        answer = input('Answer ' )
-        # if correct, moves onto next question
-        if answer.lower() in Questions_answers[randomize_question]:
-            print("Correct Answer")
-            print ()
-            # if correct, score goes up by 1
-            score += 1
-            print("your score is now", score)
-            print()
-            # breaks loop and reasks the question
-            break
-        else:
-            #if wrong
-            print("Wrong Answer, try again")
-            # if user_lives doesn't = () then minus 1 life
-            if user_lives != ():
-              user_lives -= 1
-              # if user has less than 1 life (0 lives), tell the user they have run out of lives and end program with exit()
-              if user_lives < 1:
-                print()
-                print ("You've run out of lives")
-                print("Thanks for playing the Te Reo quiz"\
-                " we hope to see you again")
-                # ends the program with exit()
-                exit()
-              else:
-                # if user has less than 2 lives, the program will print you have one life
-                if user_lives < 2:
-                  print("You now have one life left")
+  # the question = one of the questions in the list
+  question = list (Question_list.keys())
+  #input answer here 
+  while True:
+      if not question:
+          break
+      # that variable which will have the randomly chose question will mean the same as random.choice(question) which is why the variable is named randomized_question. 
+      # random.choice(question) randomly picks one of the questions in the dictionary
+      randomize_question = random.choice(question)
+      # program prints random question from dictionary. Questions vary depending on what difficulty the user chose
+      print(randomize_question)
+      while True:
+          answer = input('Answer ' )
+          # if correct, moves onto next question
+          if answer.lower() in Question_list[randomize_question]:
+              print("Correct Answer")
+              print ()
+              # if correct, score goes up by 1
+              score += 1
+              print("your score is now", score)
+              print()
+              # breaks loop and reasks the question
+              break
+          else:
+              #if wrong
+              print("Wrong Answer, try again")
+              # if user_lives doesn't = () then minus 1 life
+              if user_lives != ():
+                user_lives -= 1
+                # if user has less than 1 life (0 lives), tell the user they have run out of lives and end program with exit()
+                if user_lives < 1:
                   print()
+                  print ("You've run out of lives")
+                  print("Thanks for playing the Te Reo quiz"\
+                  " we hope to see you again")
+                  # ends the program with exit()
+                  exit()
                 else:
-                  # tells the user how many lives they have left
-                  print("You now have {} lives left".format(user_lives))
-                  print()
-                  print("Try again")
-                  # asks user the question they just got wrong
-    question.remove(randomize_question)
+                  # if user has less than 2 lives, the program will print you have one life
+                  if user_lives < 2:
+                    print("You now have one life left")
+                    print()
+                  else:
+                    # tells the user how many lives they have left
+                    print("You now have {} lives left".format(user_lives))
+                    print()
+                    print("Try again")
+                    # asks user the question they just got wrong
+      question.remove(randomize_question)
   print("You did very well")
   # if user played with lives, the program will tell the user how many lives they had left and their final score
   if user_lives != ():
