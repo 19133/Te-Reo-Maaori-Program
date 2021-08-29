@@ -1,14 +1,15 @@
 import random
 
-# dictionaries
+# dictionaries with questions and answers. Most question are from the website https://www.tepapa.govt.nz/discover-collections/read-watch-play/maori/te-reo-maori-quiz. Please go check them out because this program wouldn't be that good if I didn't have their questions (I don't own the questions but theyre owned by teppa.govt.nz). 
+
+credit_to_website = "(questions are from tepapa.govt.nz)"
 
 # Easy mode questions and answers
 Question_list_easy = {
    "when would you say kia ora? \n A. when your saying hello to someone\n B. when your wishing someone good health \n C. when your agreeing with someone \n D. all of the above": ["d", "all of the above"],
    "whats the second line of the new zealand national athem?":["o nga iwi matou ra"], 
    "What is ocean in Te Reo Maaori? \n A. kātao\n B. Moana\n C. Awa \n D. Wai":["b", "moana"],
-   "Whats red in Te Reo Maaori? \n A. whero \n B. Red \n C. whrea \n D. rato" :
-   ["a","whero"],
+   "Whats red in Te Reo Maaori? \n A. whero \n B. Red \n C. whrea \n D. rato" :["a","whero"],
    "what is six in Te Reo Maaori? \n A. Wha  \n B. toro \n C. Rua \n D. ono":
    ["d","ono"]  
    } 
@@ -18,7 +19,7 @@ Question_list_medium = {
    "what would you catch with a paa kahwai?  \n A. pekkatua \n B. ika \n C. manu \n D. Matai \n " :["b", "ika"], 
    "If you gave a donation, gift or contribution, you would give a ?":["koha"],
    "If you are welcoming someone to a school or marae, you would of give a ?":["powhiri"],
-   "what colour is the underside of the ponga fround? \n A. Hirwa \n B. Kakariki \n C. Pango \n D. whakiriki \n":["hirwa", "a"]
+   "what colour is the underside of the ponga found? \n A. Hirwa \n B. Kakariki \n C. Pango \n D. whakiriki \n":["hirwa", "a"]
    } 
 # Hard mode questions and answers
 Question_list_hard = {
@@ -129,6 +130,7 @@ def lives_check (question, low, high):
         print(error)
     # handles the ValueError message and makes the program print the error message 
     except ValueError:
+     # prints error message instead of the ValueError message
      print(error)
 
 # Main Routine
@@ -141,7 +143,7 @@ name = input ( )
 print("Kia Ora " + name)
 
 #asks user if they have played the Te Reo Maaori quiz
-played_quiz = played_before ("Have you played the Te Reo Maori quiz " + name + "?" + "\n" )
+played_quiz = played_before ("Have you played the Te Reo Maaori quiz " + name + "?" + "\n" )
 
 # if yes, program continues
 if played_quiz == "yes":
@@ -150,6 +152,7 @@ if played_quiz == "yes":
 # if no, explains what the quiz is
 elif played_quiz == "no":
   print("The Te Reo Maaori quiz is a program which tests and helps students enhance their Te Reo Maaori language skill")
+  print("It has an easy, medium, and hard difficulties and many question which I got from tepapa.govt.nz")
 
 # if xxx, program ends
 elif played_quiz == "xxx":
@@ -166,21 +169,21 @@ quiz_difficulty = Chosen_difficulty ("Would you like to play on easy, medium, or
 
 # if easy, the programw will print easy questions
 if quiz_difficulty == "easy":
-  print("Thats great, you will be asked easy level questions")
+  print("Thats great, you will be asked easy level questions which I got from teppa.govt.nz")
   # switches to the dictionary with easy questions
   Question_list = Question_list_easy
 
 
 # if medium, the programw will print easy questions
 elif quiz_difficulty == "medium":
-  print("Thats great, you will be asked medium level questions")
+  print("Thats great, you will be asked medium level questions which I got from teppa.govt.nz")
   # switches to the dictionary with medium questions
   Question_list = Question_list_medium
 
 
 # if hard, the programw will print easy questions
 elif quiz_difficulty == "hard":
-  print("Thats great, you will be asked hard level questions")
+  print("Thats great, you will be asked hard level questions which I got from teppa.govt.nz")
   # switches to the dictionary with hard questions
   Question_list = Question_list_hard
 
@@ -206,9 +209,10 @@ else:
   print("You will be playing with 0 lives")
   user_lives = ()
 
-print("GOOD LUCK")
+# wishes user good luck and tells user I didn't make the question and also tells the user where I got the questions
+print("GOOD LUCK!!! {}. I didn't make the questions".format(credit_to_website))
 
-# score = 0
+# score = 0 but goes up by 1 if the user gets a question correct
 score = 0
 while True:
   # the question = one of the questions in the list
@@ -217,7 +221,7 @@ while True:
   while True:
       if not question:
           break
-      # that variable which will have the randomly chose question will mean the same as random.choice(question) which is why the variable is named randomized_question. 
+      # that variable which will have the randomly chose question will have the same value as random.choice(question) which is why the variable is named randomized_question. 
       # random.choice(question) randomly picks one of the questions in the dictionary
       randomize_question = random.choice(question)
       # program prints random question from dictionary. Questions vary depending on what difficulty the user chose
@@ -249,7 +253,7 @@ while True:
                   # ends the program with exit()
                   exit()
                 else:
-                  # if user has less than 2 lives, the program will print you have one life
+                  # if user has less than 2 lives, the program will print you have one life left
                   if user_lives < 2:
                     print("You now have one life left")
                     print()
@@ -290,7 +294,7 @@ while True:
 
       # if easy, the programw will print easy questions
       if quiz_difficulty == "easy":
-        print("That's great. You'll be asked easy questions")
+        print("That's great. You'll be asked easy questions  which I got from teppa.govt.nz")
         print()
         # switches to the dictionary with easy questions
         Question_list = Question_list_easy
@@ -298,7 +302,7 @@ while True:
 
       # if medium, the programw will print easy questions
       elif quiz_difficulty == "medium":
-        print("That's great. You'll be asked medium level questions")
+        print("That's great. You'll be asked medium level questions which I got from teppa.govt.nz")
         print()
         # switches to the dictionary with medium questions
         Question_list = Question_list_medium
@@ -306,7 +310,7 @@ while True:
 
       # if hard, the programw will print easy questions
       elif quiz_difficulty == "hard":
-        print("That's great. You'll be asked hard questions")
+        print("That's great. You'll be asked hard questions which I got from teppa.govt.nz")
         print()
         # switches to the dictionary with hard questions
         Question_list = Question_list_hard
@@ -315,7 +319,7 @@ while True:
       elif quiz_difficulty == "xxx":
         print ("Thanks for playing the Te Reo Maaori Quiz")
         print ("We hope to see you again")
-        exit()
+        break
         
     # if yes or anything else, the user will play on the same difficulty
     else:
@@ -338,5 +342,5 @@ while True:
         print("You will not be playing with lives")
         user_lives = ()
 
-    print("Goold luck!!!")
+    print("GOOD LUCK!!! {}. I didn't make the questions".format(credit_to_website))
     print()
