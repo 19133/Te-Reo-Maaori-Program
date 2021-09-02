@@ -152,7 +152,8 @@ if played_quiz == "yes":
 # if no, explains what the quiz is
 elif played_quiz == "no":
   print("The Te Reo Maaori quiz is a program which tests and helps students enhance their Te Reo Maaori language skill")
-  print("It has an easy, medium, and hard difficulties and many questions which I got from tepapa.govt.nz")
+  print("It has an easy, medium, and hard difficulties and many questions which I got from tepapa.govt.nz which is the website for the New Zealand national museum")
+  print()
 
 # if xxx, program ends
 elif played_quiz == "xxx":
@@ -173,6 +174,7 @@ if quiz_difficulty == "easy":
   # Makes it that the program will use the questions in the easy dictionary of questions.
   # Changes the dictionary to the difficulty the user has chosen.
   Question_list = Question_list_easy
+  print()
 
 
 # if medium, the program will print easy questions
@@ -181,7 +183,7 @@ elif quiz_difficulty == "medium":
   # Makes it that the program will use the questions in the easy dictionary of questions.
   # Changes the dictionary to the difficulty the user has chosen.
   Question_list = Question_list_medium
-
+  print()
 
 # if hard, the program will print easy questions
 elif quiz_difficulty == "hard":
@@ -189,6 +191,7 @@ elif quiz_difficulty == "hard":
   # Makes it that the program will use the questions in the easy dictionary of questions.
   # Changes the dictionary to the difficulty the user has chosen.
   Question_list = Question_list_hard
+  print()
 
 # if xxx, program discontinues
 elif quiz_difficulty == "xxx":
@@ -197,7 +200,7 @@ elif quiz_difficulty == "xxx":
   exit()
 
 # asks the user if they would like to play with lives
-play_lives = input ("Would you like to play with lives\n")
+play_lives = input ("Would you like to play with lives\n").lower()
 
 # if yes, the user will be asked how many lives would they like to have
 if play_lives == "yes":
@@ -205,6 +208,7 @@ if play_lives == "yes":
   # asks the user how many lives they would like to play with (Must be a number between 1 and 10)
   user_lives = lives_check ("How many lives would you like to play with? ", 0, 10)
   print("That's amazing! You will be playing with {} lives".format(user_lives))
+  print()
 
 # else, the user will be playing with no lives and lives will = nothing
 else:
@@ -276,19 +280,19 @@ while True:
     print("Your final score was", score)
 
   # program asks the user if they would like to play the quiz again
-  play_again = input("Would you like to play the quiz again? Maybe you'll be able to beat your high score\n")
+  play_again = input("Would you like to play the quiz again? Maybe you'll be able to beat your high score\n").lower()
 
   #if answer is not yes, break the outer infinite loop
   if play_again != "yes": 
     print("Thanks for playing")
     break 
-    exit()
+
 
   else:
     score = 0
     print()
     # ask the user if they would like to play on the same difficulty
-    same_difficulty = input ("Would like to play on the same difficulty?\n")
+    same_difficulty = input ("Would like to play on the same difficulty?\n").lower()
     # if no, ask what difficulty they would like to play
     if same_difficulty == "no":
 
@@ -331,7 +335,7 @@ while True:
     print ()
     
     # asks the user if they would like to play with lives
-    play_lives = input ("Would you like to play with lives\n")
+    play_lives = input ("Would you like to play with lives\n").lower()
 
     # if yes, the user will be asked how many lives would they like to have
     if play_lives == "yes":
@@ -339,6 +343,7 @@ while True:
       # asks the user how many lives they would like to play with (Must be a number between 1 and 10)
       user_lives = lives_check ("how much many lives would you like to play with? ", 0, 10)
       print("you will be playing with {} lives".format(user_lives))
+      print()
 
     # else, lives will equal nothing meaning that the user will not play with lives
     else:
