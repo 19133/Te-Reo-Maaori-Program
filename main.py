@@ -155,7 +155,7 @@ if played_quiz == "yes":
   
 # if no, explains what the quiz is
 elif played_quiz == "no":
-  print("The Te Reo Maaori quiz is a program which tests and helps students enhance their Te Reo Maaori language skill")
+  print("The Te Reo Maaori quiz is a program which tests and helps students get better at speaking or understanding the language Te Reo Maaori")
   print("It has an easy, medium, and hard difficulties and many questions which I got from tepapa.govt.nz which is the website for the New Zealand national museum")
   print()
 
@@ -174,7 +174,7 @@ quiz_difficulty = Chosen_difficulty ("Would you like to play the quiz on easy, m
 
 # if easy, the program will print easy questions
 if quiz_difficulty == "easy":
-  print("That's great, you will be asked easy level questions which I got from teppa.govt.nz")
+  print("That's great, you will be asked easy level questions which I got from the national New Zealand museum website teppa.govt.nz")
   # Makes it that the program will use the questions in the easy dictionary of questions.
   # Changes the dictionary to the difficulty the user has chosen.
   Question_list = Question_list_easy
@@ -183,7 +183,7 @@ if quiz_difficulty == "easy":
 
 # if medium, the program will print easy questions
 elif quiz_difficulty == "medium":
-  print("That's great, you will be asked medium level questions which I got from teppa.govt.nz")
+  print("That's great, you will be asked medium level questions which I got from the national New Zealand museum website teppa.govt.nz")
   # Makes it that the program will use the questions in the easy dictionary of questions.
   # Changes the dictionary to the difficulty the user has chosen.
   Question_list = Question_list_medium
@@ -191,7 +191,7 @@ elif quiz_difficulty == "medium":
 
 # if hard, the program will print easy questions
 elif quiz_difficulty == "hard":
-  print("That's great, you will be asked hard level questions which I got from teppa.govt.nz")
+  print("That's great, you will be asked hard level questions which I got from the national New Zealand museum website teppa.govt.nz")
   # Makes it that the program will use the questions in the easy dictionary of questions.
   # Changes the dictionary to the difficulty the user has chosen.
   Question_list = Question_list_hard
@@ -306,7 +306,7 @@ while True:
 
       # if easy, the program will print easy questions
       if quiz_difficulty == "easy":
-        print("That's great. You'll be asked easy questions  which I got from teppa.govt.nz")
+        print("That's great. You'll be asked easy questions which I got from the national New Zealand museum website teppa.govt.nz")
         print()
         # switches to the dictionary with easy questions
         Question_list = Question_list_easy
@@ -314,7 +314,7 @@ while True:
 
       # if medium, the program will print easy questions
       elif quiz_difficulty == "medium":
-        print("That's great. You'll be asked medium level questions which I got from teppa.govt.nz")
+        print("That's great. You'll be asked medium level questions which I got from the national New Zealand museum website teppa.govt.nz")
         print()
         # switches to the dictionary with medium questions
         Question_list = Question_list_medium
@@ -322,7 +322,7 @@ while True:
 
       # if hard, the program will print easy questions
       elif quiz_difficulty == "hard":
-        print("That's great. You'll be asked hard questions which I got from teppa.govt.nz")
+        print("That's great. You'll be asked hard questions which I got from the national New Zealand museum website teppa.govt.nz")
         print()
         # switches to the dictionary with hard questions
         Question_list = Question_list_hard
