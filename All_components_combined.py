@@ -4,10 +4,6 @@ import random
 
 credit_to_website = "(questions are from tepapa.govt.nz)"
 
-Exit_program = ("Thanks for playing the Te Reo Maaori Quiz"\
-"We hope to see you again")
-
-
 # Easy mode questions and answers
 Question_list_easy = {
    "when would you say kia ora? \n A. when you are saying hello to someone\n B. when your wishing someone good health \n C. when you're agreeing with someone \n D. all of the above": ["d", "all of the above",],
@@ -110,6 +106,40 @@ def Chosen_difficulty(question):
       print("Please choose easy, medium or hard") 
       print("Or type xxx to quit")
 
+# Play_lives function. The function asks the user a question (How many lives would you like to play with) and uses valid = False to make while not valid = true which puts the component in a constant loop which only stops if the user does something that goes into the if block which has the return response which takes the program out of the function.
+
+# It uses if, elif, and else statements to execute a part of code if a condition is true. As you can see if the user types yes or y, it returns the user's response (which makes the program exit the function and allows the program to move to the next thing). There is no return under the else statement because I want the question to repeat if the user does something that falls into the else statement.
+def play_lives(question):
+  # puts question in forever loop
+  valid=False
+  # while not valid (while true) loops the program
+  while not valid:
+    # asks user the question
+    user_response = input (question) .lower()
+
+    # if user types yes or y, the users response will equal (mean the same as) yes 
+    if user_response == "yes" or user_response  == "y":   
+        user_response = "yes"
+        # return response which tells the program to exit the function and to run the rest of the program
+        return user_response
+
+    # if user types no or n, the users response will equal (mean the same as) no 
+    elif user_response == "no" or user_response  == "n":
+        user_response = "no"
+        # return response which tells the program to exit the function and to run the rest of the program
+        return user_response 
+
+    # if the user types xxx, the program will end.
+    elif user_response == "xxx":
+      print("Thanks for playing the Te Reo Maaori quiz")
+      print("We hope to see you again")
+      exit()
+
+    # else, the program will ask the user to type yes or no or type xxx to quit then the question repeats
+    else:
+      print("please type yes, no, or xxx to quit") 
+
+
 # lives_check function. The function asks the user a question (How many lives would you like to play with) and uses valid = False to make while not valid = true which puts the component in a constant loop which only stops if the user does something that goes into the if block which has the return response which takes the program out of the function. The reason why the valid = false means true is because if it doesn't equal false it must equal true. It also uses try to check for errors and it also uses except ValueError to handle the error message
 
 # It uses if and else statements to execute a part of code if a condition is true. As you can see if the user types a number between 1 and 10, the program will return the user's response (which makes the program exit the function and allows the program to move to the next thing). There is no return under the else statement because I want the question to repeat again if the user does something that falls into the else statement. The function also only allows answers in integers and inputs an error if the user types something that isn't an integer (an integer is a whole number), or an integer that isn't between 1 and 10.
@@ -174,7 +204,7 @@ quiz_difficulty = Chosen_difficulty ("Would you like to play the quiz on easy, m
 
 # if easy, the program will print easy questions
 if quiz_difficulty == "easy":
-  print("That's great, you will be asked easy level questions which I got from teppa.govt.nz")
+  print("That's great, you will be asked easy level questions which I got from the national New Zealand museum website teppa.govt.nz")
   # Makes it that the program will use the questions in the easy dictionary of questions.
   # Changes the dictionary to the difficulty the user has chosen.
   Question_list = Question_list_easy
@@ -183,7 +213,7 @@ if quiz_difficulty == "easy":
 
 # if medium, the program will print easy questions
 elif quiz_difficulty == "medium":
-  print("That's great, you will be asked medium level questions which I got from teppa.govt.nz")
+  print("That's great, you will be asked medium level questions which I got from the national New Zealand museum website teppa.govt.nz")
   # Makes it that the program will use the questions in the easy dictionary of questions.
   # Changes the dictionary to the difficulty the user has chosen.
   Question_list = Question_list_medium
@@ -191,7 +221,7 @@ elif quiz_difficulty == "medium":
 
 # if hard, the program will print easy questions
 elif quiz_difficulty == "hard":
-  print("That's great, you will be asked hard level questions which I got from teppa.govt.nz")
+  print("That's great, you will be asked hard level questions which I got from the national New Zealand museum website teppa.govt.nz")
   # Makes it that the program will use the questions in the easy dictionary of questions.
   # Changes the dictionary to the difficulty the user has chosen.
   Question_list = Question_list_hard
@@ -204,20 +234,26 @@ elif quiz_difficulty == "xxx":
   exit()
 
 # asks the user if they would like to play with lives
-play_lives = input ("Would you like to play with lives\n").lower()
+user_play_lives = play_lives ("Would you like to play with lives\n").lower()
 
 # if yes, the user will be asked how many lives would they like to have
-if play_lives == "yes":
+if user_play_lives == "yes":
   print ("That's great")
   # asks the user how many lives they would like to play with (Must be a number between 1 and 10)
   user_lives = lives_check ("How many lives would you like to play with? ", 0, 10)
   print("That's amazing! You will be playing with {} lives".format(user_lives))
   print()
 
-# else, the user will be playing with no lives and lives will = nothing
-else:
+# if yes, the user will be asked how many lives would they like to have
+if user_play_lives == "no":
+  print ("That's great")
   print("You will be playing with 0 lives")
   user_lives = ()
+
+# else, the user will be playing with no lives and lives will = nothing
+else:
+  print("please type yes, no, or xxx to quit")
+
 
 # wishes user good luck and tells user I didn't make the question and also tells the user where I got the questions
 print("GOOD LUCK!!! {}. I didn't make the questions".format(credit_to_website))
@@ -306,7 +342,7 @@ while True:
 
       # if easy, the program will print easy questions
       if quiz_difficulty == "easy":
-        print("That's great. You'll be asked easy questions  which I got from teppa.govt.nz")
+        print("That's great. You'll be asked easy questions which I got from the national New Zealand museum website teppa.govt.nz")
         print()
         # switches to the dictionary with easy questions
         Question_list = Question_list_easy
@@ -314,7 +350,7 @@ while True:
 
       # if medium, the program will print easy questions
       elif quiz_difficulty == "medium":
-        print("That's great. You'll be asked medium level questions which I got from teppa.govt.nz")
+        print("That's great. You'll be asked medium level questions which I got from the national New Zealand museum website teppa.govt.nz")
         print()
         # switches to the dictionary with medium questions
         Question_list = Question_list_medium
@@ -322,7 +358,7 @@ while True:
 
       # if hard, the program will print easy questions
       elif quiz_difficulty == "hard":
-        print("That's great. You'll be asked hard questions which I got from teppa.govt.nz")
+        print("That's great. You'll be asked hard questions which I got from the national New Zealand museum website teppa.govt.nz")
         print()
         # switches to the dictionary with hard questions
         Question_list = Question_list_hard
@@ -340,24 +376,28 @@ while True:
     print ()
     
     # asks the user if they would like to play with lives
-    play_lives = input ("Would you like to play with lives\n").lower()
+    user_play_lives = play_lives ("Would you like to play with lives\n").lower()
 
     # if yes, the user will be asked how many lives would they like to have
-    if play_lives == "yes":
+    if user_play_lives == "yes":
       print ("That's great")
       # asks the user how many lives they would like to play with (Must be a number between 1 and 10)
-      user_lives = lives_check ("how much many lives would you like to play with? ", 0, 10)
-      print("you will be playing with {} lives".format(user_lives))
+      user_lives = lives_check ("How many lives would you like to play with? ", 0, 10)
+      print("That's amazing! You will be playing with {} lives".format(user_lives))
       print()
 
-    # else, lives will equal nothing meaning that the user will not play with lives
-    else:
-      print("You will not be playing with lives")
+    # if yes, the user will be asked how many lives would they like to have
+    if user_play_lives == "no":
+      print ("That's great")
+      print("You will be playing with 0 lives")
       user_lives = ()
 
-  if Exit_program == "xxx":
-    print(Exit_program)
-    break 
-
+    # else, the user will be playing with no lives and lives will = nothing
+    else:
+      print("please type yes, no, or xxx to quit")
+    
     print("GOOD LUCK!!! {}. I didn't make the questions".format(credit_to_website))
     print()
+
+
+
