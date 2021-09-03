@@ -4,6 +4,10 @@ import random
 
 credit_to_website = "(questions are from tepapa.govt.nz)"
 
+Exit_program = ("Thanks for playing the Te Reo Maaori Quiz"\
+"We hope to see you again")
+
+
 # Easy mode questions and answers
 Question_list_easy = {
    "when would you say kia ora? \n A. when you are saying hello to someone\n B. when your wishing someone good health \n C. when you're agreeing with someone \n D. all of the above": ["d", "all of the above",],
@@ -291,6 +295,7 @@ while True:
   else:
     score = 0
     print()
+    print("That's amazing, you can always type xxx to end the program by the way")
     # ask the user if they would like to play on the same difficulty
     same_difficulty = input ("Would like to play on the same difficulty?\n").lower()
     # if no, ask what difficulty they would like to play
@@ -349,6 +354,10 @@ while True:
     else:
       print("You will not be playing with lives")
       user_lives = ()
+
+  if Exit_program == "xxx":
+    print(Exit_program)
+    break 
 
     print("GOOD LUCK!!! {}. I didn't make the questions".format(credit_to_website))
     print()
