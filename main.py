@@ -15,7 +15,7 @@ Question_list_easy = {
    } 
 # Medium mode questions and answers
 Question_list_medium = {
-   "what's the job of a macron?" :"to lengthen a vowel",
+   "what's the job of a macron?" :["to lengthen a vowel", "vowel"],
    "what would you catch with a paa kahwai?  \n A. pekkatua \n B. ika \n C. manu \n D. Matai \n " :["b", "ika"], 
    "If you gave a donation, gift or contribution, you would give a ?":["koha"],
    "If you are welcoming someone to a school or marae, you would of give a ?":["powhiri"],
@@ -23,17 +23,17 @@ Question_list_medium = {
    } 
 # Hard mode questions and answers
 Question_list_hard = {
-   "What is the translation of hei tiki??":["neck pendant of human form"],
+   "What is the translation of hei tiki??":["neck pendant","neck of human"],
    "what would be stored in a paataka? Pikapuka, kai, or waka?" :["kai"], 
    "what is te reo maaori name for the rugby union?":["hutuporo"],
    "if it is ua, what is it?" :["rainy"],
-   "if you were going for a hikoi you are?" :["going for a walk"]
+   "if you were going for a hikoi you are?" :["going for a walk", "walk"]
    }
 
 
 # functions 
 
-# Played_before function. The function asks the user a question (Have you played the te Reo maaori quiz before) and uses valid = False to make while not valid = true which puts the component in a constant loop which only stops if the user does something that goes into the if block which has the return response which takes the program out of the function.
+# Played_before function. The function asks the user a question (Have you played the te Reo maaori quiz before) and uses valid = False to make while not valid which equals true which puts the component in a constant loop which only stops if the user does something that goes into the if block which has the return response which takes the program out of the function.
 
 # It uses if, elif, and else statements to execute a part of code if a condition is true. As you can see if the user types yes or y, it returns the user's response (which makes the program exit the function and allows the program to move to the next thing). There is no return under the else statement because I want the question to repeat if the user does something that falls into the else statement.
 def played_before(question):
@@ -233,6 +233,10 @@ elif quiz_difficulty == "xxx":
   print ("We hope to see you again")
   exit()
 
+# else, the program will ask the user to type yes or no or type xxx to quit then the question repeats
+else:
+  print("please type yes, no, or xxx to quit")   
+
 # asks the user if they would like to play with lives
 user_play_lives = play_lives ("Would you like to play with lives\n").lower()
 
@@ -245,7 +249,7 @@ if user_play_lives == "yes":
   print()
 
 # if yes, the user will be asked how many lives would they like to have
-if user_play_lives == "no":
+elif user_play_lives == "no":
   print ("That's great")
   print("You will be playing with 0 lives")
   user_lives = ()
@@ -320,7 +324,7 @@ while True:
     print("Your final score was", score)
 
   # program asks the user if they would like to play the quiz again
-  play_again = input("Would you like to play the quiz again? Maybe you'll be able to beat your high score\n").lower()
+  play_again = input("Would you like to play the quiz again? Maybe you'll be able to beat your high score. You'll be able to change the difficulty and the lives\n").lower()
 
   #if answer is not yes, break the outer infinite loop
   if play_again != "yes": 
@@ -368,7 +372,7 @@ while True:
         print ("Thanks for playing the Te Reo Maaori Quiz")
         print ("We hope to see you again")
         break
-        
+  
     # if yes or anything else, the user will play on the same difficulty
     else:
       print("You will play on the same difficulty")
@@ -397,6 +401,7 @@ while True:
       print("please type yes, no, or xxx to quit")
     
     print("GOOD LUCK!!! {}. I didn't make the questions".format(credit_to_website))
+    # questions appear
     print()
 
 
