@@ -1,4 +1,6 @@
 import random
+import time
+# Made by Kafi Ashkir
 
 # dictionaries with questions and answers. Most questions are from the website https://www.tepapa.govt.nz/discover-collections/read-watch-play/maori/te-reo-maori-quiz. Please go check them out because this program wouldn't be that good if I didn't have their questions (I don't own the questions but they're owned by teppa.govt.nz). 
 
@@ -60,6 +62,7 @@ def played_before(question):
     elif user_response == "xxx":
       print("Thanks for playing the Te Reo Maaori quiz")
       print("We hope to see you again")
+      time.sleep(2)
       exit()
 
     # else, the program will ask the user to type yes or no or type xxx to quit then the question repeats
@@ -68,7 +71,7 @@ def played_before(question):
       print("Or type xxx to quit") 
 
 
-# Choose difficulty function. The function asks the user a question (What difficulty would you like to play easy, medium, or hard.) and uses valid = False to make while not valid = true which puts the component in a constant loop which only stops if the user does something that goes into the if block which has the return response which takes the program out of the function. The reason why the valid = false means true is because if it doesn't equal false it must equal true. It also uses .lower() to turn all upper case inputs into lower case letters
+# Choose difficulty function. The function asks the user a question (What difficulty would you like to play easy, medium, or hard.) and uses valid = False to make while not valid = true which puts the component in a constant loop which only stops if the user does something that goes into the if block which has return which takes the program out of the function. The reason why the valid = false means true is because if it doesn't equal false it must equal true. It also uses .lower() to turn all upper case inputs into lower case letters
 def Chosen_difficulty(question):
   # makes valid = false which makes while not valid meanwhile true because if it while not false that means it means while true.
   valid=False
@@ -99,6 +102,7 @@ def Chosen_difficulty(question):
     elif response == "xxx":
       print("Thanks for playing the Te Reo Maaori quiz")
       print("We hope to see you again")
+      time.sleep(2)
       exit()     
 
     # else, the program will ask the user to type easy, medium, or hard or xxx to quit. The question will repeat
@@ -106,7 +110,7 @@ def Chosen_difficulty(question):
       print("Please choose easy, medium or hard") 
       print("Or type xxx to quit")
 
-# Play_lives function. The function asks the user a question (How many lives would you like to play with) and uses valid = False to make while not valid = true which puts the component in a constant loop which only stops if the user does something that goes into the if block which has the return response which takes the program out of the function.
+# Play_lives function. The function asks the user a question (Would you like to play with lives) and uses valid = False to make while not valid = true which puts the component in a constant loop which only stops if the user does something that goes into the if block which has the return response which takes the program out of the function.
 
 # It uses if, elif, and else statements to execute a part of code if a condition is true. As you can see if the user types yes or y, it returns the user's response (which makes the program exit the function and allows the program to move to the next thing). There is no return under the else statement because I want the question to repeat if the user does something that falls into the else statement.
 def play_lives(question):
@@ -133,6 +137,7 @@ def play_lives(question):
     elif user_response == "xxx":
       print("Thanks for playing the Te Reo Maaori quiz")
       print("We hope to see you again")
+      time.sleep(2)
       exit()
 
     # else, the program will ask the user to type yes or no or type xxx to quit then the question repeats
@@ -142,9 +147,9 @@ def play_lives(question):
 
 # lives_check function. The function asks the user a question (How many lives would you like to play with) and uses valid = False to make while not valid = true which puts the component in a constant loop which only stops if the user does something that goes into the if block which has the return response which takes the program out of the function. The reason why the valid = false means true is because if it doesn't equal false it must equal true. It also uses try to check for errors and it also uses except ValueError to handle the error message
 
-# It uses if and else statements to execute a part of code if a condition is true. As you can see if the user types a number between 1 and 10, the program will return the user's response (which makes the program exit the function and allows the program to move to the next thing). There is no return under the else statement because I want the question to repeat again if the user does something that falls into the else statement. The function also only allows answers in integers and inputs an error if the user types something that isn't an integer (an integer is a whole number), or an integer that isn't between 1 and 10.
+# It uses if and else statements to execute a part of code if a condition is true. As you can see if the user types a number between 1 and 10, the program will return the user's response (which makes the program exit the function and allows the program to move to the next thing). There is no return under the else statement because I want the question to repeat again if the user does something that falls into the else statement. The function also only allows answers in whole number answers and inputs an error if the user types something that isn't a whole number, a number that has a decimal point, or an number that isn't between 1 and 10, or a number that is typed with letters.
 def lives_check (question, low, high):
-  # the error code that appears when the user types something that causes an error
+  # the error code that appears when the user types something that causes an error (A number that isn't between 1 and 10 or a number that is a decimal, or typed in words)
   error = "please enter a whole number between 1 and 10\n"
   # valid = false which makes while not valid meanwhile true because if it while not false that means it means while true
   # valid = false which helps put the function in a loop
@@ -164,7 +169,7 @@ def lives_check (question, low, high):
         print(error)
     # handles the ValueError message and makes the program print the error message 
     except ValueError:
-     # prints error message instead of the ValueError message
+     # prints error message instead of the ValueError message so the program doesn't syntax error
      print(error)
 
 # Main Routine
@@ -193,7 +198,9 @@ elif played_quiz == "no":
 elif played_quiz == "xxx":
   print("Thanks for playing the Te Reo Maaori quiz")
   print("We hope to see you again")
+  time.sleep(2)
   exit()
+
 # else, asks user to type yes or no or xxx to quit then the question repeats
 else:
   print("Please say yes or no") 
@@ -231,6 +238,7 @@ elif quiz_difficulty == "hard":
 elif quiz_difficulty == "xxx":
   print ("Thanks for playing the Te Reo Maaori Quiz")
   print ("We hope to see you again")
+  time.sleep(2)
   exit()
 
 # else, the program will ask the user to type yes or no or type xxx to quit then the question repeats
@@ -272,25 +280,27 @@ while True:
   while True:
       if not question:
           break
-      # that variable which will have the randomly chose question will have the same value as random.choice(question) which is why the variable is named randomized_question. 
+      # the variable which will have the randomly chose question will have the same value as random.choice(question) which is why the variable is named randomized_question. 
       # random.choice(question) randomly picks one of the questions in the dictionary
       randomize_question = random.choice(question)
-      # program prints random question from dictionary. Questions vary depending on what difficulty the user chose
+      # program prints random question from dictionary. Dictionary questions vary depending on what difficulty the user chose
       print(randomize_question)
       while True:
+          # the users answer = the variable answer
           answer = input('Answer ' )
-          # if correct, moves onto next question
+          # if answer is correct, it moves onto next question
           if answer.lower() in Question_list[randomize_question]:
               print("Correct Answer")
               print ()
               # if correct, score goes up by 1
               score += 1
+              # tells user their score
               print("your score is now", score)
               print()
               # breaks loop and asks the next question
               break
+          # else (If not answer)
           else:
-              #if wrong
               print("Wrong Answer, try again")
               # if user_lives doesn't = () then minus 1 life
               if user_lives != ():
@@ -301,6 +311,7 @@ while True:
                   print ("You've run out of lives")
                   print("Thanks for playing the Te Reo quiz"\
                   " We hope to see you again")
+                  time.sleep(2)
                   # ends the program with exit()
                   exit()
                 else:
@@ -313,7 +324,7 @@ while True:
                     print("You now have {} lives left".format(user_lives))
                     print()
                     print("Try again")
-                    # asks user the question they just got wrong
+                    # component loops and asks user the question they just got wrong
       question.remove(randomize_question)
   print("You did very well")
   # if user played with lives, the program will tell the user how many lives they had left and their final score
@@ -326,13 +337,15 @@ while True:
   # program asks the user if they would like to play the quiz again
   play_again = input("Would you like to play the quiz again? Maybe you'll be able to beat your high score. (You'll be able to change the difficulty and the lives)\n").lower()
 
-  #if answer is not yes, break the outer infinite loop
+  #if answer is not yes, break the outer infinite loop and end the program
   if play_again != "yes": 
     print("Thanks for playing")
+    time.sleep(2)
     break 
 
 
   else:
+    # score = 0 now because user wants to play again
     score = 0
     print()
     print("That's amazing, you can always type xxx to end the program by the way")
@@ -352,7 +365,7 @@ while True:
         Question_list = Question_list_easy
 
 
-      # if medium, the program will print easy questions
+      # if medium, the program will print medium questions
       elif quiz_difficulty == "medium":
         print("That's great. You'll be asked medium level questions which I got from the national New Zealand museum website teppa.govt.nz")
         print()
@@ -360,17 +373,18 @@ while True:
         Question_list = Question_list_medium
 
 
-      # if hard, the program will print easy questions
+      # if hard, the program will print hard questions
       elif quiz_difficulty == "hard":
         print("That's great. You'll be asked hard questions which I got from the national New Zealand museum website teppa.govt.nz")
         print()
         # switches to the dictionary with hard questions
         Question_list = Question_list_hard
 
-      # if xxx, program discontinues
+      # if xxx, break the outer infinite loop and end the program
       elif quiz_difficulty == "xxx":
         print ("Thanks for playing the Te Reo Maaori Quiz")
         print ("We hope to see you again")
+        time.sleep(2)
         break
   
     # if yes or anything else, the user will play on the same difficulty
@@ -396,9 +410,11 @@ while True:
       print("You will be playing with 0 lives")
       user_lives = ()
 
+    # if xxx, break the outer infinite loop and end the program
     elif user_play_lives == "xxx":
       print ("Thanks for playing the Te Reo Maaori Quiz")
       print ("We hope to see you again")
+      time.sleep(2)
       break
 
     # else, the user will be playing with no lives and lives will = nothing
@@ -408,6 +424,7 @@ while True:
     print("GOOD LUCK!!! {}. I didn't make the questions".format(credit_to_website))
     print()
     # program loops and asks questions again
+
 
 
 
