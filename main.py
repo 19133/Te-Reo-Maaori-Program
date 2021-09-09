@@ -1,4 +1,5 @@
 import random
+# Made by Kafi Ashkir
 
 # dictionaries with questions and answers. Most questions are from the website https://www.tepapa.govt.nz/discover-collections/read-watch-play/maori/te-reo-maori-quiz. Please go check them out because this program wouldn't be that good if I didn't have their questions (I don't own the questions but they're owned by teppa.govt.nz). 
 
@@ -23,7 +24,7 @@ Question_list_medium = {
    } 
 # Hard mode questions and answers
 Question_list_hard = {
-   "What is the translation of hei tiki??":["neck pendant","neck of human"],
+   "What is the translation of hei tiki??":["neck pendant","neck pendant of human form", "neck pendant"],
    "what would be stored in a paataka? Pikapuka, kai, or waka?" :["kai"], 
    "what is te reo maaori name for the rugby union?":["hutuporo"],
    "if it is ua, what is it?" :["rainy"],
@@ -251,7 +252,7 @@ if user_play_lives == "yes":
 # if yes, the user will be asked how many lives would they like to have
 elif user_play_lives == "no":
   print ("That's great")
-  print("You will be playing with 0 lives")
+  print("You will not be playing with lives")
   user_lives = ()
 
 # else, the user will be playing with no lives and lives will = nothing
@@ -322,9 +323,9 @@ while True:
   # if the user didn't play with lives, the program will only tell them their final score
   else:
     print("Your final score was", score)
-
+    
   # program asks the user if they would like to play the quiz again
-  play_again = input("Would you like to play the quiz again? Maybe you'll be able to beat your high score. You'll be able to change the difficulty and the lives\n").lower()
+  play_again = input("Would you like to play the quiz again? Maybe you'll be able to beat your high score. (You'll be able to change the difficulty and the lives)\n").lower()
 
   #if answer is not yes, break the outer infinite loop
   if play_again != "yes": 
@@ -396,13 +397,17 @@ while True:
       print("You will be playing with 0 lives")
       user_lives = ()
 
+    elif user_play_lives == "xxx":
+      print ("Thanks for playing the Te Reo Maaori Quiz")
+      print ("We hope to see you again")
+      break
+
     # else, the user will be playing with no lives and lives will = nothing
     else:
       print("please type yes, no, or xxx to quit")
-    
-    print("GOOD LUCK!!! {}. I didn't make the questions".format(credit_to_website))
-    # questions appear
-    print()
 
+    print("GOOD LUCK!!! {}. I didn't make the questions".format(credit_to_website))
+    print()
+    # program loops and asks questions again
 
 
