@@ -17,7 +17,7 @@ Question_list_easy = {
    } 
 # Medium mode questions and answers
 Question_list_medium = {
-   "what's the job of a macron?" :["to lengthen a vowel", "vowel"],
+   "what's the job of a macron?" :["to lengthen a vowel", "vowel", "to extend a vowel", "extend vowel"],
    "what would you catch with a paa kahwai?  \n A. pekkatua \n B. ika \n C. manu \n D. Matai \n " :["b", "ika"], 
    "If you gave a donation, gift or contribution, you would give a ?":["koha"],
    "If you are welcoming someone to a school or marae, you would of give a ?":["powhiri"],
@@ -147,10 +147,10 @@ def play_lives(question):
 
 # lives_check function. The function asks the user a question (How many lives would you like to play with) and uses valid = False to make while not valid = true which puts the component in a constant loop which only stops if the user does something that goes into the if block which has the return response which takes the program out of the function. The reason why the valid = false means true is because if it doesn't equal false it must equal true. It also uses try to check for errors and it also uses except ValueError to handle the error message
 
-# It uses if and else statements to execute a part of code if a condition is true. As you can see if the user types a number between 1 and 10, the program will return the user's response (which makes the program exit the function and allows the program to move to the next thing). There is no return under the else statement because I want the question to repeat again if the user does something that falls into the else statement. The function also only allows answers in whole number answers and inputs an error if the user types something that isn't a whole number, a number that has a decimal point, or an number that isn't between 1 and 10, or a number that is typed with letters.
+# It uses if and else statements to execute a part of code if a condition is true. As you can see if the user types a number between 0 and 10, the program will return the user's response (which makes the program exit the function and allows the program to move to the next thing). There is no return under the else statement because I want the question to repeat again if the user does something that falls into the else statement. The function also only allows answers in whole number answers and inputs an error if the user types something that isn't a whole number, a number that has a decimal point, or an number that isn't between 0 and 10, or a number that is typed with letters.
 def lives_check (question, low, high):
-  # the error code that appears when the user types something that causes an error (A number that isn't between 1 and 10 or a number that is a decimal, or typed in words)
-  error = "please enter a whole number between 1 and 10\n"
+  # the error code that appears when the user types something that causes an error (A number that isn't between 0 and 10 or a number that is a decimal, or typed in words)
+  error = "please enter a whole number between 0 and 10\n"
   # valid = false which makes while not valid meanwhile true because if it while not false that means it means while true
   # valid = false which helps put the function in a loop
   valid = False
@@ -161,10 +161,10 @@ def lives_check (question, low, high):
       # users response = an integer input meaning that the users response must be an integer
       response = int(input(question))
       #if the amount is too low /too high give
-      if 1 < response <= 10:
+      if 0 < response <= 10:
         # return response which tells the program to exit the function and to run the rest of the program
         return response
-      #output an error if the user's response isn't a whole number between 1 and 10
+      #output an error if the user's response isn't a whole number between 0 and 10
       else:
         print(error)
     # handles the ValueError message and makes the program print the error message 
@@ -221,7 +221,7 @@ if quiz_difficulty == "easy":
 # if medium, the program will print easy questions
 elif quiz_difficulty == "medium":
   print("That's great, you will be asked medium level questions which I got from the national New Zealand museum website teppa.govt.nz")
-  # Makes it that the program will use the questions in the easy dictionary of questions.
+  # Makes it that the program will use the questions in the medium dictionary of questions.
   # Changes the dictionary to the difficulty the user has chosen.
   Question_list = Question_list_medium
   print()
@@ -229,7 +229,7 @@ elif quiz_difficulty == "medium":
 # if hard, the program will print easy questions
 elif quiz_difficulty == "hard":
   print("That's great, you will be asked hard level questions which I got from the national New Zealand museum website teppa.govt.nz")
-  # Makes it that the program will use the questions in the easy dictionary of questions.
+  # Makes it that the program will use the questions in the hard dictionary of questions.
   # Changes the dictionary to the difficulty the user has chosen.
   Question_list = Question_list_hard
   print()
@@ -251,7 +251,7 @@ user_play_lives = play_lives ("Would you like to play with lives\n").lower()
 # if yes, the user will be asked how many lives would they like to have
 if user_play_lives == "yes":
   print ("That's great")
-  # asks the user how many lives they would like to play with (Must be a number between 1 and 10)
+  # asks the user how many lives they would like to play with (Must be a number between 0 and 10)
   user_lives = lives_check ("How many lives would you like to play with? ", 0, 10)
   print("That's amazing! You will be playing with {} lives".format(user_lives))
   print()
@@ -399,7 +399,7 @@ while True:
     # if yes, the user will be asked how many lives would they like to have
     if user_play_lives == "yes":
       print ("That's great")
-      # asks the user how many lives they would like to play with (Must be a number between 1 and 10)
+      # asks the user how many lives they would like to play with (Must be a number between 0 and 10)
       user_lives = lives_check ("How many lives would you like to play with? ", 0, 10)
       print("That's amazing! You will be playing with {} lives".format(user_lives))
       print()
@@ -407,7 +407,7 @@ while True:
     # if yes, the user will be asked how many lives would they like to have
     if user_play_lives == "no":
       print ("That's great")
-      print("You will be playing with 0 lives")
+      print("You will not be playing with lives")
       user_lives = ()
 
     # if xxx, break the outer infinite loop and end the program
@@ -424,6 +424,7 @@ while True:
     print("GOOD LUCK!!! {}. I didn't make the questions".format(credit_to_website))
     print()
     # program loops and asks questions again
+
 
 
 

@@ -1,5 +1,6 @@
-import random
+#import random
 import time
+import random
 # Made by Kafi Ashkir
 
 # dictionaries with questions and answers. Most questions are from the website https://www.tepapa.govt.nz/discover-collections/read-watch-play/maori/te-reo-maori-quiz. Please go check them out because this program wouldn't be that good if I didn't have their questions (I don't own the questions but they're owned by teppa.govt.nz). 
@@ -17,7 +18,7 @@ Question_list_easy = {
    } 
 # Medium mode questions and answers
 Question_list_medium = {
-   "what's the job of a macron?" :["to lengthen a vowel", "vowel"],
+   "what's the job of a macron?" :["to lengthen a vowel", "vowel", "to extend a vowel", "extend vowel"],
    "what would you catch with a paa kahwai?  \n A. pekkatua \n B. ika \n C. manu \n D. Matai \n " :["b", "ika"], 
    "If you gave a donation, gift or contribution, you would give a ?":["koha"],
    "If you are welcoming someone to a school or marae, you would of give a ?":["powhiri"],
@@ -25,7 +26,7 @@ Question_list_medium = {
    } 
 # Hard mode questions and answers
 Question_list_hard = {
-   "What is the translation of hei tiki??":["neck pendant","neck pendant of human form", "neck pendant"],
+   "What is the translation of hei tiki??":["neck pendent","neck pendent of human form", "neck pendent"],
    "what would be stored in a paataka? Pikapuka, kai, or waka?" :["kai"], 
    "what is te reo maaori name for the rugby union?":["hutuporo"],
    "if it is ua, what is it?" :["rainy"],
@@ -49,13 +50,13 @@ def played_before(question):
     # if user types yes or y, the users response will equal (mean the same as) yes 
     if user_response == "yes" or user_response  == "y":   
         user_response = "yes"
-        # return response which tells the program to exit the function and to run the rest of the program
+        # The program returns the response which tells the program to exit the function and to run the rest of the program
         return user_response
 
     # if user types no or n, the users response will equal (mean the same as) no 
     elif user_response == "no" or user_response  == "n":
         user_response = "no"
-        # return response which tells the program to exit the function and to run the rest of the program
+        # The program returns the response which tells the program to exit the function and to run the rest of the program
         return user_response 
 
     # if the user types xxx, the program will end.
@@ -71,31 +72,31 @@ def played_before(question):
       print("Or type xxx to quit") 
 
 
-# Choose difficulty function. The function asks the user a question (What difficulty would you like to play easy, medium, or hard.) and uses valid = False to make while not valid = true which puts the component in a constant loop which only stops if the user does something that goes into the if block which has return which takes the program out of the function. The reason why the valid = false means true is because if it doesn't equal false it must equal true. It also uses .lower() to turn all upper case inputs into lower case letters
+# Choose difficulty function. The function asks the user a question (What difficulty would you like to play easy, medium, or hard.) and uses valid = False to make while not valid = true which puts the component in a constant loop which only stops if the user does something that falls into the if block which has return which takes the program out of the function. 
 def Chosen_difficulty(question):
-  # makes valid = false which makes while not valid meanwhile true because if it while not false that means it means while true.
+  # makes valid = false which makes while not valid true
   valid=False
   # while not valid (while true) loops the program
   while not valid:
     # response = input (question).lower() meaning that the users response equals the input to the question. The .lower() makes upper case inputs into lower case letters
     response = input (question) .lower()
     
-    # if response = easy, then the user's response will be known as easy
+    # if response = easy, the program will be played on easy
     if response == "easy": 
         response = "easy"
-        # return response which tells the program to exit the function and to run the rest of the program
+        # The program returns the response which tells the program to exit the function and to run the rest of the program
         return response
         
-    # if response = easy, then the users response will be know as easy    
+    # if response = medium, the program will be played on medium    
     elif response == "medium":
         response = "medium"
-        # return response which tells the program to exit the function and to run the rest of the program
+        # The program returns the response which tells the program to exit the function and to run the rest of the program
         return response 
 
-    # if response = easy, then the user's response will be known as easy 
+    # if response = hard, the program will be played on hard.
     elif response == "hard":
       response = "hard"
-      # return response which tells the program to exit the function and to run the rest of the program
+      # The program returns the response which tells the program to exit the function and to run the rest of the program
       return response      
 
     # if user types xxx, the program ends
@@ -110,9 +111,9 @@ def Chosen_difficulty(question):
       print("Please choose easy, medium or hard") 
       print("Or type xxx to quit")
 
-# Play_lives function. The function asks the user a question (Would you like to play with lives) and uses valid = False to make while not valid = true which puts the component in a constant loop which only stops if the user does something that goes into the if block which has the return response which takes the program out of the function.
+# Play_lives function. The function asks the user a question (Would you like to play with lives). It also uses valid = False to make while not valid = true which puts the component in a constant loop which only stops if the user does something that goes into the if block.
 
-# It uses if, elif, and else statements to execute a part of code if a condition is true. As you can see if the user types yes or y, it returns the user's response (which makes the program exit the function and allows the program to move to the next thing). There is no return under the else statement because I want the question to repeat if the user does something that falls into the else statement.
+# It uses if, elif, and else statements to execute a part of code. If the user's response falls into an if or elif statement, the program returns the user's response (which makes the program exit the function and allows the program to move to the next thing). There is no return under the else statement because I want the question to repeat if the user does something that falls into the else statement.
 def play_lives(question):
   # puts question in forever loop
   valid=False
@@ -121,16 +122,16 @@ def play_lives(question):
     # asks user the question
     user_response = input (question) .lower()
 
-    # if user types yes or y, the users response will equal (mean the same as) yes 
+    # if user types yes or y, the user will play with lives
     if user_response == "yes" or user_response  == "y":   
         user_response = "yes"
-        # return response which tells the program to exit the function and to run the rest of the program
+        # The program returns the response which tells the program to exit the function and to run the rest of the program
         return user_response
 
-    # if user types no or n, the users response will equal (mean the same as) no 
+    # if user types no or n, the user will not play with lives
     elif user_response == "no" or user_response  == "n":
         user_response = "no"
-        # return response which tells the program to exit the function and to run the rest of the program
+        # The program returns the response which tells the program to exit the function and to run the rest of the program
         return user_response 
 
     # if the user types xxx, the program will end.
@@ -140,18 +141,18 @@ def play_lives(question):
       time.sleep(2)
       exit()
 
-    # else, the program will ask the user to type yes or no or type xxx to quit then the question repeats
+    # else, the program will ask the user to type yes or no or type xxx to quit, then the question repeats
     else:
       print("please type yes, no, or xxx to quit") 
 
 
-# lives_check function. The function asks the user a question (How many lives would you like to play with) and uses valid = False to make while not valid = true which puts the component in a constant loop which only stops if the user does something that goes into the if block which has the return response which takes the program out of the function. The reason why the valid = false means true is because if it doesn't equal false it must equal true. It also uses try to check for errors and it also uses except ValueError to handle the error message
+# lives_check function. This function asks the user a question (How many lives would you like to play with) and uses valid = False to make while not valid = true which puts the component in a constant loop which only stops if the user does something that goes into the if block. The reason why the valid = false means true is because if it doesn't equal false it must equal true. It also uses try to check for errors and it also uses except ValueError to handle the error message
 
-# It uses if and else statements to execute a part of code if a condition is true. As you can see if the user types a number between 0 and 10, the program will return the user's response (which makes the program exit the function and allows the program to move to the next thing). There is no return under the else statement because I want the question to repeat again if the user does something that falls into the else statement. The function also only allows answers in whole number answers and inputs an error if the user types something that isn't a whole number, a number that has a decimal point, or an number that isn't between 0 and 10, or a number that is typed with letters.
+# It uses if and else statements to execute a part of code. If the user types a number between 0 and 10, the program will return the user's response (which makes the program exit the function and allows the program to move onto the next thing). There is no return under the else statement because I want the question to repeat again if the user does something that falls into the else statement. The function also only allows answers in whole numbers and numbers between 1 and 10. If the user inputs something that isn't a whole number or is between 1 and 10, the program will input an error.
 def lives_check (question, low, high):
-  # the error code that appears when the user types something that causes an error (A number that isn't between 0 and 10 or a number that is a decimal, or typed in words)
+  # the error code that appears when the user types something that causes an error (A number that isn't between 0 and 10 or a number that is a decimal, or is typed in words)
   error = "please enter a whole number between 0 and 10\n"
-  # valid = false which makes while not valid meanwhile true because if it while not false that means it means while true
+  # valid = false which makes while not valid meanwhile true because if it "while not false" that means it is "while true"
   # valid = false which helps put the function in a loop
   valid = False
   # while not valid (while true) loops the program
@@ -162,7 +163,7 @@ def lives_check (question, low, high):
       response = int(input(question))
       #if the amount is too low /too high give
       if 0 < response <= 10:
-        # return response which tells the program to exit the function and to run the rest of the program
+        # The program returns the response which tells the program to exit the function and to run the rest of the program
         return response
       #output an error if the user's response isn't a whole number between 0 and 10
       else:
@@ -174,10 +175,11 @@ def lives_check (question, low, high):
 
 # Main Routine
 
-# welcomes the user and asks users name
+# welcomes the user
 print("Welcome to the Te Reo Maaori quiz")
 # Asks user their name
 print("What is your amazing name?")
+# The users input when asnwering their name is stored in a variable which is then printed when the program greets the user in Te Reo Maaori
 name = input ( )
 print("Kia Ora " + name)
 
@@ -190,8 +192,8 @@ if played_quiz == "yes":
   
 # if no, explains what the quiz is
 elif played_quiz == "no":
-  print("The Te Reo Maaori quiz is a program which tests and helps students get better at speaking or understanding the language Te Reo Maaori")
-  print("It has an easy, medium, and hard difficulties and many questions which I got from tepapa.govt.nz which is the website for the New Zealand national museum")
+  print("The Te Reo Maaori quiz is a program which helps students get better at speaking Te Reo Maaori")
+  print("It has easy, medium, and hard difficulties and many questions which I got from the website tepapa.govt.nz which is the website for the New Zealand national museum")
   print()
 
 # if xxx, program ends
@@ -212,24 +214,21 @@ quiz_difficulty = Chosen_difficulty ("Would you like to play the quiz on easy, m
 # if easy, the program will print easy questions
 if quiz_difficulty == "easy":
   print("That's great, you will be asked easy level questions which I got from the national New Zealand museum website teppa.govt.nz")
-  # Makes it that the program will use the questions in the easy dictionary of questions.
   # Changes the dictionary to the difficulty the user has chosen.
   Question_list = Question_list_easy
   print()
 
 
-# if medium, the program will print easy questions
+# if medium, the program will print medium questions
 elif quiz_difficulty == "medium":
   print("That's great, you will be asked medium level questions which I got from the national New Zealand museum website teppa.govt.nz")
-  # Makes it that the program will use the questions in the medium dictionary of questions.
   # Changes the dictionary to the difficulty the user has chosen.
   Question_list = Question_list_medium
   print()
 
-# if hard, the program will print easy questions
+# if hard, the program will print hard questions
 elif quiz_difficulty == "hard":
   print("That's great, you will be asked hard level questions which I got from the national New Zealand museum website teppa.govt.nz")
-  # Makes it that the program will use the questions in the hard dictionary of questions.
   # Changes the dictionary to the difficulty the user has chosen.
   Question_list = Question_list_hard
   print()
@@ -241,9 +240,9 @@ elif quiz_difficulty == "xxx":
   time.sleep(2)
   exit()
 
-# else, the program will ask the user to type yes or no or type xxx to quit then the question repeats
+# else, the program will ask the user to type easy, medium, hard or xxx, then the question repeats
 else:
-  print("please type yes, no, or xxx to quit")   
+  print("please type easy, medium, or hard. or xxx to quit")   
 
 # asks the user if they would like to play with lives
 user_play_lives = play_lives ("Would you like to play with lives\n").lower()
@@ -256,18 +255,18 @@ if user_play_lives == "yes":
   print("That's amazing! You will be playing with {} lives".format(user_lives))
   print()
 
-# if yes, the user will be asked how many lives would they like to have
+# if no, the user will not play with lives
 elif user_play_lives == "no":
   print ("That's great")
   print("You will not be playing with lives")
   user_lives = ()
 
-# else, the user will be playing with no lives and lives will = nothing
+# else, the user will be asked to typed yes or no, or xxx to quit
 else:
   print("please type yes, no, or xxx to quit")
 
 
-# wishes user good luck and tells user I didn't make the question and also tells the user where I got the questions
+# wishes the user good luck and and gives credit to website
 print("GOOD LUCK!!! {}. I didn't make the questions".format(credit_to_website))
 print()
 
@@ -345,7 +344,7 @@ while True:
 
 
   else:
-    # score = 0 now because user wants to play again
+    # score = 0 now because the user wants to play again
     score = 0
     print()
     print("That's amazing, you can always type xxx to end the program by the way")
@@ -424,5 +423,3 @@ while True:
     print("GOOD LUCK!!! {}. I didn't make the questions".format(credit_to_website))
     print()
     # program loops and asks questions again
-
-
